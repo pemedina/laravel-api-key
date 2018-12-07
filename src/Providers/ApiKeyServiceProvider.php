@@ -23,6 +23,9 @@ class ApiKeyServiceProvider extends ServiceProvider
     {
         $this->registerMiddleware($router);
         $this->registerMigrations(__DIR__ . '/../../database/migrations');
+        $this->publishes([
+            __DIR__.'/../config/api-key.php' => config_path('api-key.php')
+        ], 'config');
     }
 
     /**
